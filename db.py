@@ -8,7 +8,7 @@ counts = defaultdict(lambda: 0)
 
 @asyncio.coroutine
 def handle(request):
-    asyncio.sleep(0.5)
+    yield asyncio.sleep(0.5)
     key = request.match_info.get('key', "default")
     print("Got {}".format(key))
     counts[key] += 1
